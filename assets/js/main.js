@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
         contatore: 0,
+        scrollalo: null,
 
         dune: [
             {
@@ -39,8 +40,35 @@ createApp({
       ]
     }
   },
+  created(){
+    this.scrollAuto()
+  },
   methods: {
+    next(){
+        this.contatore++
+        if(this.contatore > this.dune.length - 1 ){
+            this.contatore = 0 ;
+        } 
+    },
+    prev(){
+        this.contatore--
+        if(this.contatore < 0){
+            this.contatore = this.dune.length - 1 ;
+        } 
+    },
+    scrollAuto(){
+        this.scrollalo = setInterval(()=> {
+            this.next()
+        }, 3000);
+    },
+    stopScroll(){
+        this.scrollalo = null
+    },
+    setImg(k){
+        this.contatore = k
+    }
     
+
 
   }
 }).mount('#app')

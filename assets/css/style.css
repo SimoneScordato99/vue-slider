@@ -1,12 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .thumb {
     width: calc(100% / 6);
+    filter: brightness(0.3);
 }
 .thumb img {
     width: 100%;
-    opacity: 0.5;
 }
 .active{
-    opacity: 1;
+    filter: brightness(1);
+    border: 0.5px rgb(38, 99, 219) solid;
+}
+.card-body{
+    height: 300px;
 }
 .card-top{
     position: relative;

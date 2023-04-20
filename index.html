@@ -13,24 +13,25 @@
     <div id="app">
         <div class="container d-flex justify-content-center">
             <div class="card" style="width: 18rem;">
-                <div class="card-top">
+                <div class="card-top" tabindex="0">
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
-                    <img v-bind:src="dune[contatore].image" class="card-img-top" :alt="dune[contatore].title">
+                    <img v-bind:src='dune[contatore].image' class="card-img-top" :alt="dune[contatore].title">
                 </div>
 
 
-                
                 <div class="card-body text-center">
                     <h5 class="card-title">{{dune[contatore].title}}</h5>
                     <p class="card-text">{{dune[contatore].text}}</p>
                 </div>
+
+
                 <div class="thumbs d-flex justify-content-between">
                     <div v-for="(element , index) in dune"
                         :key="index"
                         class="thumb"
-                        :class="(contatore == index) ? 'active' : '' "
-                        
+                        :class="(contatore == index) ? 'active' : '' "    
+                        @click="setImg(index)"                    
                     >
                         <img  :src="element.image" :alt="element.title">
                     </div>
